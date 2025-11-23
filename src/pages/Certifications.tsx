@@ -45,13 +45,13 @@ export default function Certifications() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4">
+          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4 text-foreground">
             Professional{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-glow to-primary">
               Certifications
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Industry-recognized certifications from leading technology companies.
           </p>
         </motion.div>
@@ -61,13 +61,13 @@ export default function Certifications() {
             <GlassCard key={index} delay={index * 0.1} className="group">
               <div className="space-y-4">
                 {/* Icon with gradient background */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${cert.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${cert.color} flex items-center justify-center group-hover:scale-110 transition-transform warm-shadow`}>
                   <Award className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Certification Name */}
                 <div>
-                  <h3 className="text-xl font-display font-bold mb-1 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-display font-bold mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
                     {cert.name}
                   </h3>
                   <p className="text-sm font-medium text-muted-foreground">{cert.provider}</p>
@@ -79,7 +79,7 @@ export default function Certifications() {
                 </p>
 
                 {/* Badge indicator */}
-                <div className="pt-2 border-t border-border/50">
+                <div className="pt-2 border-t border-primary/20">
                   <div className="flex items-center gap-2 text-xs text-primary font-medium">
                     <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                     Verified Certification
@@ -97,8 +97,8 @@ export default function Certifications() {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="glass-strong rounded-2xl p-8 max-w-3xl mx-auto">
-            <h2 className="text-2xl font-display font-bold mb-4">Continuous Learning</h2>
+          <div className="glass-strong rounded-2xl p-8 max-w-3xl mx-auto warm-shadow">
+            <h2 className="text-2xl font-display font-bold mb-4 text-foreground">Continuous Learning</h2>
             <p className="text-muted-foreground leading-relaxed">
               These certifications represent a commitment to staying current with rapidly evolving AI, cloud, 
               and software development technologies. I actively pursue additional certifications and training 

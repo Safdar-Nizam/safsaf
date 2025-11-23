@@ -52,13 +52,13 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4">
+          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4 text-foreground">
             Featured{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-glow to-primary">
               Projects
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Intelligent systems, ML pipelines, and AI platforms built with cutting-edge technologies.
           </p>
         </motion.div>
@@ -69,10 +69,10 @@ export default function Projects() {
               <div className="space-y-4">
                 {/* Header */}
                 <div className="flex items-start justify-between">
-                  <h3 className="text-2xl font-display font-bold group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-display font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <span className="text-xs px-3 py-1 rounded-full bg-secondary/20 text-secondary border border-secondary/30 flex-shrink-0">
+                  <span className="text-xs px-3 py-1 rounded-full bg-primary/8 text-primary border border-primary/40 flex-shrink-0 font-medium">
                     {project.year}
                   </span>
                 </div>
@@ -90,15 +90,15 @@ export default function Projects() {
                 </div>
 
                 {/* Details */}
-                <div className="space-y-3 pt-4 border-t border-border/50">
+                <div className="space-y-3 pt-4 border-t border-primary/20">
                   <div>
                     <h4 className="text-sm font-semibold text-primary mb-1">Problem</h4>
-                    <p className="text-sm text-muted-foreground">{project.problem}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{project.problem}</p>
                   </div>
                   
                   <div>
-                    <h4 className="text-sm font-semibold text-secondary mb-1">Approach</h4>
-                    <p className="text-sm text-muted-foreground">{project.approach}</p>
+                    <h4 className="text-sm font-semibold text-secondary-foreground mb-1">Approach</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{project.approach}</p>
                   </div>
                   
                   <div>

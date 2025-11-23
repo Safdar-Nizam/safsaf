@@ -46,13 +46,13 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4">
+          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4 text-foreground">
             Let's Build{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-glow to-primary">
               Something Intelligent
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Ready to collaborate on AI systems, ML pipelines, or innovative tech projects? Get in touch.
           </p>
         </motion.div>
@@ -65,64 +65,64 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="space-y-6"
           >
-            <GlassCard hover={false}>
-              <h2 className="text-2xl font-display font-bold mb-6">Contact Information</h2>
+            <GlassCard hover={false} className="warm-shadow">
+              <h2 className="text-2xl font-display font-bold mb-6 text-foreground">Contact Information</h2>
               
               <div className="space-y-4">
                 <a
                   href="mailto:safdarnizam28@gmail.com"
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-muted/40 transition-colors group"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <div className="w-12 h-12 rounded-lg bg-primary/8 border border-primary/30 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="font-medium">Email</p>
+                    <p className="font-medium text-foreground">Email</p>
                     <p className="text-sm text-muted-foreground">safdarnizam28@gmail.com</p>
                   </div>
                 </a>
 
                 <a
                   href="tel:+15615524957"
-                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-lg hover:bg-muted/40 transition-colors group"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-                    <Phone className="w-6 h-6 text-secondary" />
+                  <div className="w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/30 flex items-center justify-center group-hover:bg-secondary/15 transition-colors">
+                    <Phone className="w-6 h-6 text-secondary-foreground" />
                   </div>
                   <div>
-                    <p className="font-medium">Phone</p>
+                    <p className="font-medium text-foreground">Phone</p>
                     <p className="text-sm text-muted-foreground">561-552-4957</p>
                   </div>
                 </a>
 
                 <div className="flex items-center gap-4 p-4 rounded-lg">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-primary/8 border border-primary/30 flex items-center justify-center">
                     <Linkedin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="font-medium">Location</p>
+                    <p className="font-medium text-foreground">Location</p>
                     <p className="text-sm text-muted-foreground">Florida, USA</p>
                   </div>
                 </div>
               </div>
             </GlassCard>
 
-            <GlassCard hover={false}>
-              <h3 className="text-xl font-display font-semibold mb-4">Connect on Social</h3>
+            <GlassCard hover={false} className="warm-shadow">
+              <h3 className="text-xl font-display font-semibold mb-4 text-foreground">Connect on Social</h3>
               <div className="flex gap-4">
                 <motion.a
                   whileHover={{ scale: 1.1, y: -4 }}
                   href="#"
-                  className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                  className="w-12 h-12 rounded-lg bg-primary/8 border border-primary/30 flex items-center justify-center hover:bg-primary/15 transition-colors"
                 >
                   <Linkedin className="w-6 h-6 text-primary" />
                 </motion.a>
                 <motion.a
                   whileHover={{ scale: 1.1, y: -4 }}
                   href="#"
-                  className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center hover:bg-secondary/20 transition-colors"
+                  className="w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/30 flex items-center justify-center hover:bg-secondary/15 transition-colors"
                 >
-                  <Github className="w-6 h-6 text-secondary" />
+                  <Github className="w-6 h-6 text-secondary-foreground" />
                 </motion.a>
               </div>
             </GlassCard>
@@ -134,12 +134,12 @@ export default function Contact() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <GlassCard hover={false}>
-              <h2 className="text-2xl font-display font-bold mb-6">Send a Message</h2>
+            <GlassCard hover={false} className="warm-shadow">
+              <h2 className="text-2xl font-display font-bold mb-6 text-foreground">Send a Message</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
+                  <label htmlFor="name" className="text-sm font-medium text-foreground">
                     Your Name
                   </label>
                   <Input
@@ -148,12 +148,12 @@ export default function Contact() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="John Doe"
-                    className="glass border-border/50 focus:border-primary transition-colors"
+                    className="glass border-border/40 focus:border-primary transition-colors"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
+                  <label htmlFor="email" className="text-sm font-medium text-foreground">
                     Your Email
                   </label>
                   <Input
@@ -162,12 +162,12 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="john@example.com"
-                    className="glass border-border/50 focus:border-primary transition-colors"
+                    className="glass border-border/40 focus:border-primary transition-colors"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
+                  <label htmlFor="message" className="text-sm font-medium text-foreground">
                     Your Message
                   </label>
                   <Textarea
@@ -176,14 +176,14 @@ export default function Contact() {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell me about your project or idea..."
                     rows={6}
-                    className="glass border-border/50 focus:border-primary transition-colors resize-none"
+                    className="glass border-border/40 focus:border-primary transition-colors resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-primary-foreground font-medium glow-primary group"
+                  className="w-full bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 text-primary-foreground font-medium glow-primary group warm-shadow"
                 >
                   Send Message
                   <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

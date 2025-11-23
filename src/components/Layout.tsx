@@ -22,12 +22,13 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden">
-      {/* Animated background particles */}
+      {/* Subtle warm background elements */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-primary/20 rounded-full"
+            className="absolute w-2 h-2 bg-primary/10 rounded-full"
+            style={{ filter: 'blur(1px)' }}
             initial={{
               x: Math.random() * window.innerWidth,
               y: Math.random() * window.innerHeight,
@@ -35,11 +36,12 @@ export const Layout = ({ children }: LayoutProps) => {
             animate={{
               y: [null, Math.random() * window.innerHeight],
               x: [null, Math.random() * window.innerWidth],
+              opacity: [0.3, 0.6, 0.3],
             }}
             transition={{
-              duration: 20 + Math.random() * 20,
+              duration: 25 + Math.random() * 15,
               repeat: Infinity,
-              ease: "linear",
+              ease: "easeInOut",
             }}
           />
         ))}
@@ -49,16 +51,16 @@ export const Layout = ({ children }: LayoutProps) => {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="sticky top-0 z-50 glass-strong border-b border-border/50"
+        className="sticky top-0 z-50 glass-strong border-b border-primary/20"
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <NavLink to="/" className="flex items-center space-x-2 group">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center font-display font-bold text-lg glow-primary group-hover:scale-110 transition-transform">
+            <NavLink to="/" className="flex items-center space-x-3 group">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center font-display font-bold text-lg text-primary-foreground warm-shadow group-hover:scale-105 transition-all duration-300">
                 SN
               </div>
-              <span className="hidden sm:block font-display font-semibold text-lg">
+              <span className="hidden sm:block font-display font-semibold text-xl text-foreground">
                 Safdar Nizam
               </span>
             </NavLink>
@@ -70,8 +72,8 @@ export const Layout = ({ children }: LayoutProps) => {
                   key={link.path}
                   to={link.path}
                   end={link.path === "/"}
-                  className="px-4 py-2 rounded-lg text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-muted/50 transition-all relative"
-                  activeClassName="text-primary bg-muted/80"
+                  className="px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-all relative after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-3/4"
+                  activeClassName="text-primary after:w-3/4"
                 >
                   {link.name}
                 </NavLink>
@@ -81,7 +83,7 @@ export const Layout = ({ children }: LayoutProps) => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-muted/50 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-muted/40 transition-colors text-foreground"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -107,8 +109,8 @@ export const Layout = ({ children }: LayoutProps) => {
                       to={link.path}
                       end={link.path === "/"}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-3 rounded-lg text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-muted/50 transition-all"
-                      activeClassName="text-primary bg-muted/80"
+                      className="block px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-all"
+                      activeClassName="text-primary bg-muted/60 border-l-2 border-primary"
                     >
                       {link.name}
                     </NavLink>
