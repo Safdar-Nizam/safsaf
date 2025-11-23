@@ -9,16 +9,16 @@ interface TechBadgeProps {
 
 export const TechBadge = ({ name, variant = "primary", className }: TechBadgeProps) => {
   const variants = {
-    primary: "bg-primary/10 text-primary border-primary/30 hover:bg-primary/20",
-    secondary: "bg-secondary/10 text-secondary border-secondary/30 hover:bg-secondary/20",
-    muted: "bg-muted/50 text-muted-foreground border-border/50 hover:bg-muted",
+    primary: "bg-primary/5 text-primary border-primary/40 hover:bg-primary/15 hover:border-primary/60",
+    secondary: "bg-secondary/8 text-secondary-foreground border-secondary/30 hover:bg-secondary/15",
+    muted: "bg-muted/60 text-muted-foreground border-border/40 hover:bg-muted/80",
   };
 
   return (
     <motion.span
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, y: -2 }}
       className={cn(
-        "inline-block px-3 py-1 rounded-full text-xs font-medium border transition-all",
+        "inline-block px-3 py-1 rounded-full text-xs font-medium border transition-all duration-300",
         variants[variant],
         className
       )}

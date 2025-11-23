@@ -37,13 +37,13 @@ export default function Skills() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4">
+          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4 text-foreground">
             Technical{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-glow to-primary">
               Skills
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             A comprehensive toolkit for building intelligent systems, from AI/ML to cloud infrastructure.
           </p>
         </motion.div>
@@ -53,13 +53,13 @@ export default function Skills() {
           {skillCategories.map((category, index) => (
             <motion.button
               key={category.name}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(index)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                 activeCategory === index
-                  ? "glass-strong border-primary text-primary glow-primary"
-                  : "glass border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
+                  ? "glass-strong gold-border text-primary glow-primary"
+                  : "glass border-border/40 text-muted-foreground hover:text-foreground hover:border-primary/40"
               }`}
             >
               {category.name}
@@ -75,8 +75,8 @@ export default function Skills() {
           transition={{ duration: 0.3 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="glass-strong rounded-2xl p-8 lg:p-12">
-            <h2 className="text-3xl font-display font-bold mb-8 text-center">
+          <div className="glass-strong rounded-2xl p-8 lg:p-12 warm-shadow">
+            <h2 className="text-3xl font-display font-bold mb-8 text-center text-foreground">
               {skillCategories[activeCategory].name}
             </h2>
             
@@ -102,7 +102,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="mt-20 max-w-7xl mx-auto"
         >
-          <h2 className="text-3xl font-display font-bold mb-8 text-center">Complete Skill Matrix</h2>
+          <h2 className="text-3xl font-display font-bold mb-8 text-center text-foreground">Complete Skill Matrix</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skillCategories.map((category, catIndex) => (
@@ -112,7 +112,7 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: catIndex * 0.1 }}
-                className="glass rounded-xl p-6"
+                className="glass rounded-xl p-6 warm-shadow"
               >
                 <h3 className="text-xl font-display font-semibold mb-4 text-primary">
                   {category.name}

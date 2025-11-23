@@ -48,13 +48,13 @@ export default function Experience() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4">
+          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4 text-foreground">
             Professional{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-glow to-primary">
               Experience
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Building intelligent systems, scalable backends, and MLOps pipelines across AI-focused organizations.
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative max-w-5xl mx-auto">
           {/* Vertical Line */}
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary to-primary opacity-30" />
+          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary-glow to-primary opacity-40" />
 
           {/* Experience Cards */}
           <div className="space-y-12">
@@ -78,7 +78,7 @@ export default function Experience() {
                 } flex-col lg:gap-12`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-8 lg:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-primary z-10" />
+                <div className="absolute left-8 lg:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-primary glow-primary z-10 border-2 border-card" />
 
                 {/* Content Card */}
                 <div className={`flex-1 pl-20 lg:pl-0 ${index % 2 === 0 ? "lg:pr-12" : "lg:pl-12"}`}>
@@ -90,13 +90,13 @@ export default function Experience() {
                           <h3 className="text-2xl font-display font-bold text-primary">
                             {exp.role}
                           </h3>
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/40 px-3 py-1 rounded-full border border-border/40">
                             <Calendar className="w-4 h-4" />
                             {exp.period}
                           </div>
                         </div>
                         <div className="flex items-center gap-4 text-lg">
-                          <span className="font-semibold">{exp.company}</span>
+                          <span className="font-semibold text-foreground">{exp.company}</span>
                           <span className="flex items-center gap-1 text-muted-foreground">
                             <MapPin className="w-4 h-4" />
                             {exp.location}
@@ -113,9 +113,9 @@ export default function Experience() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 * i }}
-                            className="flex items-start gap-3 text-muted-foreground"
+                            className="flex items-start gap-3 text-muted-foreground leading-relaxed"
                           >
-                            <span className="flex-shrink-0 w-2 h-2 rounded-full bg-secondary mt-2" />
+                            <span className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2" />
                             <span>{achievement}</span>
                           </motion.li>
                         ))}

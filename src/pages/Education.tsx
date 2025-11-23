@@ -12,13 +12,13 @@ export default function Education() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4">
+          <h1 className="text-5xl lg:text-6xl font-display font-bold mb-4 text-foreground">
             Education &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-glow to-primary">
               Leadership
             </span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Academic excellence combined with technical leadership in AI and machine learning.
           </p>
         </motion.div>
@@ -28,50 +28,50 @@ export default function Education() {
             <div className="space-y-6">
               {/* Header */}
               <div className="flex items-start gap-6">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 glow-primary group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary via-primary-glow to-primary flex items-center justify-center flex-shrink-0 glow-primary group-hover:scale-110 transition-transform warm-shadow">
                   <GraduationCap className="w-10 h-10 text-primary-foreground" />
                 </div>
                 
                 <div className="flex-1">
                   <div className="flex items-start justify-between flex-wrap gap-2 mb-2">
-                    <h2 className="text-3xl font-display font-bold group-hover:text-primary transition-colors">
+                    <h2 className="text-3xl font-display font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                       Florida Atlantic University
                     </h2>
-                    <span className="text-sm px-4 py-2 rounded-full bg-secondary/20 text-secondary border border-secondary/30">
+                    <span className="text-sm px-4 py-2 rounded-full bg-primary/8 text-primary border border-primary/40 font-medium">
                       2024 – 2025
                     </span>
                   </div>
                   <p className="text-xl text-muted-foreground mb-2">Boca Raton, Florida</p>
                   <div className="flex items-center gap-2">
                     <Award className="w-5 h-5 text-primary" />
-                    <span className="text-lg font-semibold">Master of Computer Science</span>
+                    <span className="text-lg font-semibold text-foreground">Master of Computer Science</span>
                   </div>
                 </div>
               </div>
 
               {/* Details */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-border/50">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-primary/20">
                 {/* Focus Area */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <h3 className="font-display font-semibold text-lg">Focus Area</h3>
+                    <h3 className="font-display font-semibold text-lg text-foreground">Focus Area</h3>
                   </div>
                   <div className="space-y-2 pl-4">
-                    <p className="text-muted-foreground flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 flex-shrink-0" />
+                    <p className="text-muted-foreground flex items-start gap-2 leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                       <span>Artificial Intelligence (Minor)</span>
                     </p>
-                    <p className="text-muted-foreground flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 flex-shrink-0" />
+                    <p className="text-muted-foreground flex items-start gap-2 leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                       <span>Machine Learning Systems</span>
                     </p>
-                    <p className="text-muted-foreground flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 flex-shrink-0" />
+                    <p className="text-muted-foreground flex items-start gap-2 leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                       <span>AI Systems Architecture</span>
                     </p>
-                    <p className="text-muted-foreground flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 flex-shrink-0" />
+                    <p className="text-muted-foreground flex items-start gap-2 leading-relaxed">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                       <span>Data Engineering & MLOps</span>
                     </p>
                   </div>
@@ -81,23 +81,23 @@ export default function Education() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-2 mb-3">
                     <Users className="w-5 h-5 text-primary" />
-                    <h3 className="font-display font-semibold text-lg">Leadership Role</h3>
+                    <h3 className="font-display font-semibold text-lg text-foreground">Leadership Role</h3>
                   </div>
-                  <div className="glass-strong rounded-lg p-4">
+                  <div className="glass-strong rounded-lg p-4 warm-shadow">
                     <p className="font-semibold text-primary mb-2">AI Lead</p>
                     <p className="text-sm text-muted-foreground mb-3">
                       Google Developer Student Club
                     </p>
                     <ul className="space-y-2">
-                      <li className="text-sm text-muted-foreground flex items-start gap-2">
+                      <li className="text-sm text-muted-foreground flex items-start gap-2 leading-relaxed">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                         <span>Led AI/ML workshops and technical sessions</span>
                       </li>
-                      <li className="text-sm text-muted-foreground flex items-start gap-2">
+                      <li className="text-sm text-muted-foreground flex items-start gap-2 leading-relaxed">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                         <span>Organized hackathons and AI project showcases</span>
                       </li>
-                      <li className="text-sm text-muted-foreground flex items-start gap-2">
+                      <li className="text-sm text-muted-foreground flex items-start gap-2 leading-relaxed">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                         <span>Mentored students in ML engineering</span>
                       </li>
@@ -107,8 +107,8 @@ export default function Education() {
               </div>
 
               {/* Coursework Highlights */}
-              <div className="pt-6 border-t border-border/50">
-                <h3 className="font-display font-semibold text-lg mb-4">Key Coursework & Projects</h3>
+              <div className="pt-6 border-t border-primary/20">
+                <h3 className="font-display font-semibold text-lg mb-4 text-foreground">Key Coursework & Projects</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     "Advanced Machine Learning",
@@ -126,7 +126,7 @@ export default function Education() {
                       transition={{ delay: index * 0.05 }}
                       className="flex items-center gap-2 text-muted-foreground"
                     >
-                      <div className="w-2 h-2 rounded-full bg-secondary" />
+                      <div className="w-2 h-2 rounded-full bg-primary" />
                       <span>{course}</span>
                     </motion.div>
                   ))}
