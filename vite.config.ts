@@ -4,11 +4,12 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
+// NOTE: When deploying to GitHub Pages set `base` to `/REPO_NAME/` (replace below).
+// If you prefer to keep the site at the root during local dev, change this value
+// or override via an environment variable in your CI workflow.
 export default defineConfig(({ mode }) => ({
-  // When deploying to GitHub Pages for the repository 'safdar-s-ai-cockpit',
-  // set the base path so assets are loaded from '/safdar-s-ai-cockpit/'.
-  // Change this to '/' if you publish to a user/org page (username.github.io).
-  base: '/safdar-s-ai-cockpit/',
+  // Use root during local dev, and the repo path when building for production
+  base: mode === 'development' ? '/' : '/safdar-s-ai-cockpit/',
   server: {
     host: "::",
     port: 8080,
