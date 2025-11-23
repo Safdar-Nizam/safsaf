@@ -6,17 +6,15 @@ import { TechBadge } from "@/components/TechBadge";
 import { GlassCard } from "@/components/GlassCard";
 import { PageTransition } from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
+import ChatWidget from "@/components/ChatWidget";
 
-const techStack = [
-  "Python", "FastAPI", "LangChain", "TensorFlow", "AWS", "Docker", "Kubernetes"
-];
-
+// ⭐ Perfect 5-point circular orbit, evenly spaced every 72°
 const floatingChips = [
-  { text: "LLMs", x: 80, y: 20, delay: 0 },
-  { text: "RAG", x: -60, y: 40, delay: 0.2 },
-  { text: "FastAPI", x: 90, y: 70, delay: 0.4 },
-  { text: "K8s", x: -80, y: 80, delay: 0.6 },
-  { text: "LangChain", x: 70, y: -30, delay: 0.8 },
+  { text: "LangChain", angleDeg: -90, delay: 0 },   // Top
+  { text: "LLMs", angleDeg: -18, delay: 0.1 },      // Upper-right
+  { text: "FastAPI", angleDeg: 54, delay: 0.2 },    // Lower-right
+  { text: "RAG", angleDeg: 126, delay: 0.3 },       // Lower-left
+  { text: "K8s", angleDeg: 198, delay: 0.4 },       // Upper-left
 ];
 
 const quickLinks = [
@@ -33,6 +31,7 @@ export default function Home() {
       <div className="container mx-auto px-4 py-12 lg:py-20">
         {/* Hero Section */}
         <section className="min-h-[80vh] flex flex-col lg:flex-row items-center gap-12 mb-32">
+          
           {/* Left Side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -78,23 +77,19 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
-
-            <div className="flex flex-wrap gap-2 pt-8">
-              {techStack.map((tech, index) => (
-                <TechBadge key={tech} name={tech} variant="primary" />
-              ))}
-            </div>
           </motion.div>
 
-          {/* Right Side - Avatar with Floating Chips */}
+          {/* Right Side - Avatar + Perfect Circle Orbit */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex-1 flex items-center justify-center"
           >
-            <div className="relative w-80 h-80">
-              {/* Central Avatar */}
+            <div className="relative w-80 h-80 ]">
+
+              
+              {/* Center Circle */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-primary-glow to-primary glow-primary flex items-center justify-center warm-shadow">
                 <div className="w-[95%] h-[95%] rounded-full bg-card flex items-center justify-center border-2 border-primary/20">
                   <span className="text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary via-primary-glow to-primary">
@@ -103,32 +98,59 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Floating Chips */}
-              {floatingChips.map((chip, index) => (
-                <motion.div
-                  key={chip.text}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1 + chip.delay, duration: 0.4 }}
-                  className="absolute"
-                  style={{
-                    left: `calc(50% + ${chip.x}px)`,
-                    top: `calc(50% + ${chip.y}px)`,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
-                  <motion.div
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: chip.delay }}
-                    className="glass px-4 py-2 rounded-full border border-primary/40 text-sm font-medium whitespace-nowrap text-foreground warm-shadow"
-                  >
-                    {chip.text}
-                  </motion.div>
-                </motion.div>
-              ))}
+              {/* Orbit System */}
+              <style>{`
+                @keyframes orbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+                @keyframes counter { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+              `}</style>
+
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                
+                {/* Rotating container */}
+                <div className="absolute inset-0" style={{ animation: 'orbit 70s linear infinite', transformOrigin: '50% 50%' }}>
+                  
+                  {floatingChips.map((chip) => {
+                    const angleRad = (chip.angleDeg * Math.PI) / 180;
+
+                    // ⭐ Corrected radius — perfect alignment with circle border
+                    const radius = 135;
+
+                    const x = Math.round(radius * Math.cos(angleRad));
+                    const y = Math.round(radius * Math.sin(angleRad));
+
+                    return (
+                      <div
+                        key={chip.text}
+                        style={{
+                          position: 'absolute',
+                          left: `calc(50% + ${x}px)`,
+                          top: `calc(50% + ${y}px)`,
+                          transform: 'translate(-50%, -50%)',
+                          pointerEvents: 'auto',
+                          animation: 'counter 70s linear infinite',
+                          zIndex: 40,
+                        }}
+                      >
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.6 + chip.delay, duration: 0.45 }}
+                          whileHover={{ y: -6, scale: 1.02 }}
+                          className="glass min-w-[88px] px-4 py-2 rounded-full border border-primary/20 text-sm font-medium text-center whitespace-nowrap text-foreground warm-shadow transition-shadow duration-300 ease-out hover:shadow-2xl hover:ring-2 hover:ring-amber-300/60"
+                        >
+                          <span className="select-none inline-block">{chip.text}</span>
+                        </motion.div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </motion.div>
         </section>
+
+        {/* Chat assistant */}
+        <ChatWidget />
 
         {/* Quick Overview Cards */}
         <section className="mb-32">
@@ -218,6 +240,7 @@ export default function Home() {
             </Link>
           </div>
         </section>
+
       </div>
     </PageTransition>
   );

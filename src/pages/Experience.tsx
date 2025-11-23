@@ -9,6 +9,11 @@ const experiences = [
     location: "Florida, USA",
     role: "AI Systems Engineer",
     period: "May 2025 – Nov 2025",
+    url: "https://www.hugreadingprogram.org",
+    images: [
+      "/images/hug-award.jpg",
+      "/images/hug-group.jpg",
+    ],
     achievements: [
       "Built an internal retrieval platform using LangChain, Flowise, Llama 3.1, and Mistral with routing logic, metadata indexing, vector search optimization, and quality controls, improving retrieval consistency and reducing query latency.",
       "Developed backend services using Python, FastAPI, Pydantic with schema refinement, automated health checks, observability hooks, and scheduled indexing processes, supporting ~7,000 monthly users and reducing backend error rates by 22%.",
@@ -120,6 +125,25 @@ export default function Experience() {
                           </motion.li>
                         ))}
                       </ul>
+
+                      {/* Company link + images (if provided) */}
+                      <div className="pt-4">
+                        {exp.url && (
+                          <a href={exp.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+                            Visit {exp.company}
+                          </a>
+                        )}
+
+                        {exp.images && (
+                          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {exp.images.map((src, idx) => (
+                              <a key={idx} href={src} target="_blank" rel="noopener noreferrer" className="block">
+                                <img src={src} alt={`${exp.company} ${idx + 1}`} className="w-full max-w-md h-auto object-cover rounded-lg border border-card warm-shadow" />
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </GlassCard>
                 </div>

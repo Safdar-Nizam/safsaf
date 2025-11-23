@@ -5,6 +5,10 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // When deploying to GitHub Pages for the repository 'safdar-s-ai-cockpit',
+  // set the base path so assets are loaded from '/safdar-s-ai-cockpit/'.
+  // Change this to '/' if you publish to a user/org page (username.github.io).
+  base: '/safdar-s-ai-cockpit/',
   server: {
     host: "::",
     port: 8080,
